@@ -1,3 +1,6 @@
+// nice ESM imports 
+// using singleton pattern is the right approach 
+// closeDB() is a nice touch
 import { MongoClient } from "mongodb";
 
 let db = null;
@@ -48,6 +51,9 @@ export const connectDB = async () => {
     process.exit(1);
   }
 };
+
+
+//large commented out block, should delete 
 
 // export const getDB = () => {
 //   if (!db) {
