@@ -1,3 +1,15 @@
+/* Variables are comprehensive and well-named 
+Component hierarchy is logical (reset → layout → components → utilities)
+Modal animation with transform + opacity is smooth and correct
+
+
+Fixes 
+Shared tab/breakdown styles are missing — As flagged in tracker.css and network.css,
+.page-tabs, .page-tab, .breakdown-*, .stats-two-col, .stats-panel are duplicated across
+both page files but never added here. They belong in shared.css.
+*/
+
+
 /* ============================================================
    shared.css — Momentum Career Platform
    Shared styles: variables, reset, sidebar, buttons,
