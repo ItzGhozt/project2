@@ -49,6 +49,7 @@ export const createNetworkContact = async (contactData) => {
     updatedAt: new Date(),
   };
 
+  // Number.isNaN is done properly and consistently this is better than Application.js
   if (Number.isNaN(contact.metDate.getTime()))
     throw new Error("Invalid metDate");
   if (contact.followUpDate && Number.isNaN(contact.followUpDate.getTime()))
@@ -88,6 +89,17 @@ export const findNetworkContactById = async (contactId, userId) => {
   });
 };
 
+// This does the update in two seperate quries, first updateOne then findOne
+// This file should do the same
+// Replace the two-step with:
+const result = await db.collection("network").findOneAndUpdate(
+  { _id: new ObjectId(contactId), userId: userIdMatch },
+  { $set: update },
+  { returnDocument: "after" }
+);
+
+
+return result;
 export const updateNetworkContact = async (contactId, userId, updateData) => {
   const db = getDB();
 
