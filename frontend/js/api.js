@@ -1,9 +1,20 @@
+// apiFetch wrapper centralizing credentials, headers, 
+//and error handling is exactly the right pattern
+
+// requireAuth guard is clean and simple
+
+
 /* ============================================================
    api.js — Momentum Career Platform
    Shared fetch helpers and auth utilities.
    Imported by: auth.js, tracker.js, network.js
    ============================================================ */
 
+
+//hardcoded, should be environment aware
+const API = window.location.hostname === 'localhost'
+    ? 'http://localhost:3000/api'
+    : 'https://project2-cb5y.onrender.com/api';
 // deployed backend link 
 const API = 'https://project2-cb5y.onrender.com/api';
 
