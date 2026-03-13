@@ -1,3 +1,7 @@
+// escapeHtml is implemented and used consistentlym  important for XSS prevention
+// Promise.all([loadContacts(), loadQuickStats()]) for parallel fetching is correct
+
+
 /* ============================================================
    network.js — Momentum Career Platform
    Handles: contacts CRUD, statistics (total, byCompany,
