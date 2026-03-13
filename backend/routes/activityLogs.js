@@ -52,6 +52,19 @@ router.get("/", async (req, res) => {
   }
 });
 
+
+//The Get entity and Id are doing the same thing with a different enetity type
+//The two routes here can be combined into one
+router.get("/:type", async (req, res) => {
+  const validTypes = ["application", "network"];
+  if (!validTypes.includes(req.params.type)) {
+    return res.status(400).json({ error: "Invalid type" });
+  }
+  const logs = await findActivityLogsByEntityType(req.session.userId, req.params.type);
+  ...
+});
+
+
 // Get activity logs for specific entity
 router.get("/entity/:entityId", async (req, res) => {
   try {
@@ -93,3 +106,5 @@ router.put("/:id", async (req, res) => {
 });
 
 export default router;
+
+// well written code and handles appropriate status codes are used 
