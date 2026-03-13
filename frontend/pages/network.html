@@ -1,3 +1,13 @@
+<!-- Proper shared.css + network.css load order
+<nav>, <main> semantic elements used correctly
+form-label class used instead of bare label — fixes the scoping issue from auth.html
+
+Fixes 
+  for attribute still missing on labels — <label class="form-label">Name *</label>
+  still has no for="fName". Same accessibility issue as auth.html — applies to all 
+  form labels here.
+  Leftover title attribute on Applications nav link — Line: -->
+
 <!doctype html>
 <html lang="en">
   <head>
