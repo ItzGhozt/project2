@@ -1,3 +1,8 @@
+/* CSS variables are consistent and well name
+Animations are smooth 
+The loading spinner via ::after pseudo-element is a clean technique 
+There is a duplicate rule — Merge the two .panel-left .brand-name blocks into one
+*/
 /* ============================================================
    auth.css — Momentum Career Platform
    Styles specific to the auth (login / register) page.
