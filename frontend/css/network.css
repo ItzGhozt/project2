@@ -1,3 +1,13 @@
+/* Proper use of shared.css variables throughout, no duplication issue like auth.css 
+Urgency badge variants (.followup-overdue/soon/ok) are a smart pattern
+Source-specific bar colors are a nice UX touch
+
+Chained single-line rules lines like .contact-info { flex: 1; min-width: 0; }
+and .contact-name { font-size: 16px; ... } are all on one line. 
+Inconsistent with the rest of the file which uses multi-line formatting. 
+Picking one style would be benifical 
+*/
+
 /* ============================================================
    network.css — Momentum Career Platform
    Requires: shared.css
