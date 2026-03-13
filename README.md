@@ -45,6 +45,8 @@ The project emphasizes clean REST API design, modular JavaScript, session-based 
 
 ---
 
+// I really liked you UI for your site I can tell you put a lot of effort, good job! 
+
 ## Design Document
 
 View the design document for this project: [Design_document.pdf](https://github.com/mohammedarmaan/project2/blob/master/assets/Design%20Document.pdf)
