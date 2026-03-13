@@ -1,3 +1,7 @@
+// classList.toggle(class, boolean) pattern is clean and concise
+// setLoading properly disables the button to prevent double-submit
+
+
 /* ============================================================
    auth.js — Momentum Career Platform
    Handles login, registration, and tab switching on auth.html.
@@ -81,6 +85,15 @@ async function handleLogin(e) {
 /* ----------------------------------------------------------
    Register handler
    ---------------------------------------------------------- */
+
+// No password validation on register — handleRegister sends the password 
+// directly with no client-side checks. At minimum check length before hitting the API:
+if (document.getElementById('regPassword').value.length < 8) {
+    showMessage('registerMsg', 'Password must be at least 8 characters', 'error');
+    setLoading('registerBtn', false);
+    return;
+  }
+
 async function handleRegister(e) {
   e.preventDefault();
   clearMessages();
