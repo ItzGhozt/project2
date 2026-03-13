@@ -1,3 +1,15 @@
+/* Status badge colors match the bar chart colors visually consistent 
+Tooltip via data-tip + ::after is clever, no JS needed
+
+Fixes 
+Major duplication with network.css — .page-tabs, .page-tab, .stats-two-col, 
+.stats-panel, .stats-panel-title, .breakdown-*, .stats-empty are all copy-pasted 
+verbatim between the two files. These shared components belong in shared.css, 
+not duplicated across page files
+
+*/
+
+
 /* ============================================================
    tracker.css — Momentum Career Platform
    Requires: shared.css
