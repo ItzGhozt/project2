@@ -1,6 +1,7 @@
 import { getDB } from "../config/db.js";
 import { ObjectId } from "mongodb";
 
+// clean and resuable across all files
 // enum for status field
 export const VALID_STATUSES = [
   "applied",
@@ -137,6 +138,14 @@ export const getApplicationStats = async (userId) => {
     ])
     .toArray();
 
+
+  //bySource response rate is broken  In getApplicationStats, the responded field 
+  //counts every application regardless of status (since $in: ["$status",
+  //VALID_STATUSES] is always true — all statuses are valid). This means response 
+  //rate will always be 100%. It should filter for statuses that actually indicate a response, 
+  //something like:
+  $in: ["$status", ["screening", "interviewing", "offer", "rejected"]]
+
   // Response rate by source
   const bySource = await db
     .collection("applications")
@@ -244,6 +253,11 @@ export const getApplicationStreak = async (userId) => {
   let tempStreak = 1;
 
   const today = new Date().toISOString().split("T")[0];
+  // 86400000 is milliseconds in a day but it's not obvious at a glance. 
+  //Should be a named constant
+
+  const MS_PER_DAY = 1000 * 60 * 60 * 24;
+  
   const yesterday = new Date(Date.now() - 86400000).toISOString().split("T")[0];
 
   // Check if streak is active (applied today or yesterday)
