@@ -1,3 +1,15 @@
+// loadNetworkContacts() called non-blocking is a smart performance choice
+// linkContact/unlinkContact correctly re-renders both lists after update
+
+//fixes
+// escapeHtml is duplicated from network.js — Defined identically in both files. 
+//Should live in api.js and be shared.
+
+// Inline onclick throughout — Same issue as network.js. renderTable, 
+//renderLinkedContacts all use inline onclick="editApp(...)" etc., 
+//requiring all functions to be global. Event delegation on the table body 
+//would be the proper pattern.
+
 /* ============================================================
    tracker.js — Momentum Career Platform
    Handles: applications CRUD, contacts per application,
